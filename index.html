@@ -186,7 +186,7 @@
         <section id="contact" class="section">
             <div class="content-section">
                 <h2 class="section-title">Contact Us</h2>
-                <p>Have questions or ready to get started? Contact us today for a free consultation and estimate.</p>
+                <p class="contact-intro">Have questions or ready to get started? Contact us today for a free consultation and estimate.</p>
                 <div class="contact-info">
                     <p>Phone: +1 512-939-6730</p>
                     <p>Email: admin@dvmroof.com</p>
@@ -307,12 +307,14 @@
                 breakpoints: {
                     768: {
                         perPage: 1,
-                        direction: 'ttb', // top to bottom (vertical) for mobile
-                        height: '500px',  // fixed height for vertical carousel
+                        direction: 'ttb',
+                        height: '500px',
                         arrows: true,
                         pagination: true,
-                        wheel: true,      // enable mouse wheel scrolling
-                        releaseWheel: true // release wheel when cursor leaves
+                        wheel: true,
+                        releaseWheel: true,
+                        gap: 0,
+                        padding: 0
                     },
                 },
                 autoplay: true,

@@ -10,10 +10,12 @@
     --t_light: #f8f9fa;
     --t_dark: #1d1d1d;
     --t_primary: #0061B5;
-    --t_highlighter: #ff7200;
+    --t_highlighter: #f8f9fa;
+    /* --t_highlighter: #0061B5; */
+    /* --t_highlighter: #ff7200; */
+    --t_background: rgb(255 255 255 / 67%);
     --t_font: 'Poppins', sans-serif;
     --s_font: 'Roboto', sans-serif;
-    --t_background: rgba(36, 36, 36, 0.671);
 }
 
 .main{
@@ -146,7 +148,7 @@ ul li a{
 
 ul li a:hover{
     color: var(--t_primary);
-    background-color: rgba(255, 114, 0, 0.1);
+    background-color: rgba(0, 81, 255, 0.1);
 }
 
 ul li a.active{
@@ -408,12 +410,12 @@ body.menu-open {
 
 #home {
     padding-top: 75px;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image1.jpg) center no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image1.jpg) center no-repeat;
     background-size: auto auto;
 }
 
 #about {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image2.jpg) center no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image2.jpg) center no-repeat;
     background-size: 200% auto;
 }
 
@@ -427,25 +429,26 @@ body.menu-open {
     line-height: 1.6;
 }
 #services{
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/background.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/background.jpg);
 }
 #testimonials {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image4.jpg)center no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image4.jpg)center no-repeat;
     background-size: 260% auto;
 }
 #faqs{
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image3.jpg)center no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image3.jpg)center no-repeat;
     background-size: 260% auto;;
 }
 #contact {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/background.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image8.jpg)center no-repeat;
+    background-size: 280% auto;
 }
 
 .content-section {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    color: #fff;
+    color: var(--t_dark);
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
@@ -457,7 +460,7 @@ body.menu-open {
 .section-title {
     font-family: 'Times New Roman';
     font-size: 45px;
-    color: var(--t_highlighter);;
+    color: var(--t_light);;
     margin-bottom: 30px;
     text-align: left;
     border-bottom: 2px solid var(--t_highlighter);;
@@ -565,8 +568,9 @@ body.menu-open {
 }
 
 .slide-description h3 {
-  color: var(--t_highlighter);;
+  color: var(--t_light);;
   margin-bottom: 5px;
+  border-bottom: 1px solid var(--t_light);
 }
 
 .slide-description p {
@@ -592,7 +596,7 @@ body.menu-open {
 .testimonial-author {
     text-align: right;
     margin-top: 15px;
-    color: var(--t_highlighter);;
+    color: var(--t_dark);
 }
 
 /* FAQ Styles */
@@ -606,18 +610,28 @@ body.menu-open {
 }
 
 .faq-item h3 {
-    color: var(--t_highlighter);;
+    color: var(--t_dark);
     margin-bottom: 15px;
+    border-bottom: 1px solid var(--t_dark);
 }
 
 /* Contact Styles */
+.contact-intro {
+    color: var(--t_light);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .contact-info {
     background: var(--t_background);
     padding: 30px;
     border-radius: 10px;
     margin-top: 30px;
-    border: 1px solid var(--t_highlighter);;
+    border: 1px solid var(--t_highlighter);
     width: 100%;
+    color: var(--t_dark);
 }
 
 .contact-info p {
@@ -664,7 +678,7 @@ body.menu-open {
     background: rgba(0,0,0,0.8);
     padding: 40px 0;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
-    border-top: 2px solid var(--t_primary);;
+    border-top: 5px solid var(--t_primary);;
 }
 
 .footer-content {
@@ -679,6 +693,7 @@ body.menu-open {
 
 .footer p {
     margin: 5px 0;
+    font-size: 15px;
 }
 
 .footer-logo {
