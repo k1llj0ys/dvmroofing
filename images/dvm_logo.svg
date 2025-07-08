@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80">
+  <style>
+    .logo-text { fill: #ffffff; font-family: Arial, sans-serif; }
+    .main-text { font-size: 36px; font-weight: bold; letter-spacing: 2px; }
+    .sub-text { font-size: 14px; font-weight: normal; letter-spacing: 1.2px; }
+  </style>
+  <g>
+    <text x="10" y="40" class="logo-text main-text">DVM</text>
+    <text x="10" y="60" class="logo-text sub-text">ROOFING AND</text>
+    <text x="10" y="75" class="logo-text sub-text">CONSTRUCTION</text>
+  </g>
+</svg>

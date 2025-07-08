@@ -1,0 +1,44 @@
+
+<svg width="600" height="260" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .letter {{ fill:#4a4c51; }}
+      .blue   {{ fill:#2a75b9; }}
+      .sub    {{ fill:#4a4c51; font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing:-1px; }}
+    </style>
+  </defs>
+
+  
+  <rect class="blue" x="0"   y="0" width="170" height="25"/>
+  <rect class="blue" x="195" y="0" width="170" height="25"/>
+  <rect class="blue" x="390" y="0" width="170" height="25"/>
+
+  
+  <path class="letter" d="
+    M0,25
+    L0,145
+    L90,145
+    Q150,145 150,95
+    L150,75
+    Q150,25 90,25
+    Z
+    M30,55
+    L30,115
+    L85,115
+    Q105,115 105,95
+    L105,75
+    Q105,55 85,55
+    Z" transform="translate(10,0)"/>
+
+  
+  <path class="letter" d="
+    M0,25 L30,25 75,145 120,25 150,25 90,145 60,145 Z" transform="translate(215,0)"/>
+
+  
+  <path class="letter" d="
+    M0,25 L0,145 30,145 30,65 60,145 90,145 120,65 120,145 150,145 150,25 115,25 75,115 35,25 Z" transform="translate(410,0)"/>
+
+  
+  <text class="sub" x="15" y="195" font-size="56">ROOFING AND</text>
+  <text class="sub" x="15" y="255" font-size="56">CONSTRUCTION</text>
+</svg>
