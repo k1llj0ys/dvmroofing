@@ -13,6 +13,7 @@
     --t_highlighter: #ff7200;
     --t_font: 'Poppins', sans-serif;
     --s_font: 'Roboto', sans-serif;
+    --t_background: rgba(36, 36, 36, 0.671);
 }
 
 .main{
@@ -413,11 +414,11 @@ body.menu-open {
 
 #about {
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image2.jpg) center no-repeat;
-    background-size: 120% auto;
+    background-size: 200% auto;
 }
 
 #about p {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--t_background);
     padding: 30px;
     border-radius: 10px;
     margin: 20px 0;
@@ -429,10 +430,12 @@ body.menu-open {
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/background.jpg);
 }
 #testimonials {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/background.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image4.jpg)center no-repeat;
+    background-size: 260% auto;
 }
 #faqs{
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/background.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/image3.jpg)center no-repeat;
+    background-size: 260% auto;;
 }
 #contact {
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(images/background.jpg);
@@ -573,7 +576,7 @@ body.menu-open {
 
 /* Testimonials Styles */
 .testimonial {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--t_background);
     padding: 30px;
     border-radius: 10px;
     margin: 20px 0;
@@ -594,7 +597,7 @@ body.menu-open {
 
 /* FAQ Styles */
 .faq-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--t_background);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -609,7 +612,7 @@ body.menu-open {
 
 /* Contact Styles */
 .contact-info {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--t_background);
     padding: 30px;
     border-radius: 10px;
     margin-top: 30px;
