@@ -12,6 +12,7 @@
     --t_primary: #0061B5;
     --t_secondary: #0b1850;
     --t_highlighter: #f8f9fa;
+    --t_blur: #5f5f5f;
     /* --t_highlighter: #0061B5; */
     /* --t_highlighter: #ff7200; */
     --t_blur: rgba(255, 255, 255, 0.5);
@@ -232,6 +233,11 @@ body.menu-open {
     line-height: 35px;
     margin-bottom: 20px;
     font-size: 25px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    max-width: 800px;
+    animation: fadeInUp 1.4s ease-out;
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
 }
 
 .content h1{
@@ -241,22 +247,44 @@ body.menu-open {
     margin-top: 0;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    color: #ffffff;
+    line-height: 1.2;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .content .cn{
     width: auto;
     height: auto;
-    padding: 10px 15px;
+    padding: 12px 18px;
     background: var(--t_primary);
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     margin-left: 0;
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 10px;
     transition: .4s ease;
     display: inline-block;
     color: #fff;
-    font-weight: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    animation: fadeInUp 1.2s ease-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
 }
 
 .content .cn a{
@@ -270,9 +298,15 @@ body.menu-open {
     color: var(--t_highlighter);
 }
 
-.content span{
-    color: var(--t_highlighter);
-    font-size: 65px;
+.content span.highlight{
+    color: var(--t_light);
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.highlight-text {
+    font-weight: 600;
+    font-size: 30px;
 }
 
 .form{
@@ -413,8 +447,31 @@ body.menu-open {
 
 #home {
     padding-top: 75px;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image1.jpg) center no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.6)50%,rgba(0,0,0,0.6)50%), url(images/image1.jpg) center no-repeat;
     background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 #services,#faqs {
@@ -860,6 +917,11 @@ body.menu-open {
     
     .menu.active {
         right: 0;
+    }
+
+    .highlight-text {
+        font-weight: 600;
+        font-size: 20px;
     }
     
     ul {
