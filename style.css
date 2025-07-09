@@ -884,13 +884,13 @@ body.menu-open {
 
 @media screen and (max-width: 768px) {
     .navbar {
-        display: block; /* Ensure navbar is displayed */
-        height: 75px; /* Maintain height on mobile */
+        display: block;
+        height: 75px;
     }
     
     .navbar-content {
         justify-content: space-between;
-        display: flex; /* Ensure flex display is maintained */
+        display: flex;
     }
     
     .menu-toggle {
@@ -909,8 +909,8 @@ body.menu-open {
         transition: right 0.3s ease;
         z-index: 1000;
         padding-top: 75px;
-        display: block; /* Ensure menu is displayed */
-        float: none; /* Override float property */
+        display: block;
+        float: none;
         transform: none;
         left: auto;
     }
@@ -1031,18 +1031,18 @@ body.menu-open {
 @media screen and (max-width: 480px) {
     .logo {
         font-size: 24px;
-        max-width: 120px; /* Smaller logo for very small screens */
+        max-width: 120px;
     }
     
     .tel-button {
-        margin-right: 50px; /* Adjust spacing for smaller screens */
+        margin-right: 50px;
     }
     
     .btn {
-        min-width: 70px; /* Smaller minimum width */
-        font-size: 13px; /* Even smaller font */
-        height: 32px; /* Smaller height */
-        padding: 0 8px; /* Reduce horizontal padding */
+        min-width: 70px;
+        font-size: 13px;
+        height: 32px;
+        padding: 0 8px;
     }
     
     .content h1 {
