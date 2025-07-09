@@ -294,8 +294,8 @@ body.menu-open {
 }
 
 .cn:hover{
-    background-color: #fff;
-    color: var(--t_highlighter);
+    background-color: var(--t_light);
+    color: var(--t_primary);
 }
 
 .content span.highlight{
@@ -447,7 +447,7 @@ body.menu-open {
 
 #home {
     padding-top: 75px;
-    background: linear-gradient(to top, rgba(0,0,0,0.6)50%,rgba(0,0,0,0.6)50%), url(images/image1.jpg) center no-repeat;
+    background: linear-gradient(to top, rgba(0,0,0,0.6)50%,rgba(0,0,0,0.6)50%), url(images/background.jpg) center no-repeat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
