@@ -10,10 +10,13 @@
     --t_light: #f8f9fa;
     --t_dark: #1d1d1d;
     --t_primary: #0061B5;
+    --t_secondary: #0050CB;
     --t_highlighter: #f8f9fa;
+    --t_blur: #5f5f5f;
     /* --t_highlighter: #0061B5; */
     /* --t_highlighter: #ff7200; */
-    --t_background: rgb(255 255 255 / 67%);
+    --t_blur: rgba(255, 255, 255, 0.5);
+    --t_background: rgba(255, 255, 255, 0.8);
     --t_font: 'Poppins', sans-serif;
     --s_font: 'Roboto', sans-serif;
 }
@@ -227,33 +230,61 @@ body.menu-open {
     padding-bottom: 25px;
     font-family: Arial;
     letter-spacing: 1.2px;
-    line-height: 30px;
+    line-height: 35px;
     margin-bottom: 20px;
+    font-size: 25px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    max-width: 800px;
+    animation: fadeInUp 1.4s ease-out;
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
 }
 
 .content h1{
     font-family: 'Times New Roman';
-    font-size: 50px;
+    font-size: 70px;
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    color: #ffffff;
+    line-height: 1.2;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .content .cn{
     width: auto;
     height: auto;
-    padding: 10px 15px;
+    padding: 12px 18px;
     background: var(--t_primary);
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     margin-left: 0;
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 10px;
     transition: .4s ease;
     display: inline-block;
     color: #fff;
-    font-weight: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    animation: fadeInUp 1.2s ease-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
 }
 
 .content .cn a{
@@ -263,13 +294,13 @@ body.menu-open {
 }
 
 .cn:hover{
-    background-color: #fff;
-    color: var(--t_highlighter);
+    background-color: var(--t_light);
+    color: var(--t_primary);
 }
 
-.content span{
-    color: var(--t_highlighter);
-    font-size: 65px;
+.highlight-text {
+    font-weight: 600;
+    font-size: 30px;
 }
 
 .form{
@@ -410,13 +441,43 @@ body.menu-open {
 
 #home {
     padding-top: 75px;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image1.jpg) center no-repeat;
-    background-size: auto auto;
+    background: linear-gradient(to top, rgba(0,0,0,0.6)50%,rgba(0,0,0,0.6)50%), url(images/background.jpg) center no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-#about {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image2.jpg) center no-repeat;
-    background-size: 200% auto;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#services,#faqs {
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/background1.jpg) center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#about, #testimonials, #contact {
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/background2.jpg) center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #about p {
@@ -424,24 +485,9 @@ body.menu-open {
     padding: 30px;
     border-radius: 10px;
     margin: 20px 0;
-    border: 1px solid var(--t_highlighter);
+    border: 1px solid var(--t_primary);
     width: 100%;
     line-height: 1.6;
-}
-#services{
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/background.jpg);
-}
-#testimonials {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image4.jpg)center no-repeat;
-    background-size: 260% auto;
-}
-#faqs{
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image3.jpg)center no-repeat;
-    background-size: 260% auto;;
-}
-#contact {
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%), url(images/image8.jpg)center no-repeat;
-    background-size: 280% auto;
 }
 
 .content-section {
@@ -449,21 +495,25 @@ body.menu-open {
     max-width: 1200px;
     margin: 0 auto;
     color: var(--t_dark);
-    padding: 40px 20px;
+    padding: 30px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    background: var(--t_blur);
+    border: 1px solid var(--t_primary);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
 }
 
 .section-title {
     font-family: 'Times New Roman';
     font-size: 45px;
-    color: var(--t_light);;
+    color: var(--t_secondary);;
     margin-bottom: 30px;
     text-align: left;
-    border-bottom: 2px solid var(--t_highlighter);;
+    border-bottom: 2px solid var(--t_secondary);;
     padding-bottom: 10px;
     width: 100%;
 }
@@ -518,7 +568,7 @@ body.menu-open {
 
 .splide__slide img {
   width: 100%;
-  height: 300px;
+  height: 700px;
   object-fit: cover;
 }
 
@@ -530,6 +580,18 @@ body.menu-open {
   background: rgba(0, 0, 0, 0.7);
   padding: 15px;
   color: #fff;
+}
+.slide-description h3 {
+  color: var(--t_light);;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--t_light);
+  font-size: 35px;
+}
+
+.slide-description p {
+  margin: 0;
+  font-size: 25px;
+  padding: 0px 60px;
 }
 
 /* Vertical Splide Carousel Styles for Mobile */
@@ -567,24 +629,13 @@ body.menu-open {
   }
 }
 
-.slide-description h3 {
-  color: var(--t_light);;
-  margin-bottom: 5px;
-  border-bottom: 1px solid var(--t_light);
-}
-
-.slide-description p {
-  margin: 0;
-  font-size: 14px;
-}
-
 /* Testimonials Styles */
 .testimonial {
     background: var(--t_background);
     padding: 30px;
     border-radius: 10px;
     margin: 20px 0;
-    border: 1px solid var(--t_highlighter);;
+    border: 1px solid var(--t_primary);;
     width: 100%;
 }
 
@@ -617,7 +668,7 @@ body.menu-open {
 
 /* Contact Styles */
 .contact-intro {
-    color: var(--t_light);
+    color: var(--t_dark);
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 20px;
@@ -629,7 +680,7 @@ body.menu-open {
     padding: 30px;
     border-radius: 10px;
     margin-top: 30px;
-    border: 1px solid var(--t_highlighter);
+    border: 1px solid var(--t_primary);
     width: 100%;
     color: var(--t_dark);
 }
@@ -827,13 +878,13 @@ body.menu-open {
 
 @media screen and (max-width: 768px) {
     .navbar {
-        display: block; /* Ensure navbar is displayed */
-        height: 75px; /* Maintain height on mobile */
+        display: block;
+        height: 75px;
     }
     
     .navbar-content {
         justify-content: space-between;
-        display: flex; /* Ensure flex display is maintained */
+        display: flex;
     }
     
     .menu-toggle {
@@ -852,14 +903,19 @@ body.menu-open {
         transition: right 0.3s ease;
         z-index: 1000;
         padding-top: 75px;
-        display: block; /* Ensure menu is displayed */
-        float: none; /* Override float property */
+        display: block;
+        float: none;
         transform: none;
         left: auto;
     }
     
     .menu.active {
         right: 0;
+    }
+
+    .highlight-text {
+        font-weight: 600;
+        font-size: 20px;
     }
     
     ul {
@@ -894,12 +950,25 @@ body.menu-open {
         margin-top: 0;
     }
     
-    .content h1, .content .cn, .content .par {
+    .content h1 {
         max-width: 100%;
+        font-size: 50px;
+    }
+
+    .content .cn, .content .par {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .content .par {
+        max-width: 100%;
+        letter-spacing: 1px;
+        line-height: 25px;
     }
     
     .content-section {
-        padding: 20px;
+        padding: 20px 25px;
+        margin: 20px;
     }
     
     .content-cols {
@@ -930,32 +999,44 @@ body.menu-open {
     }
     
     .floating-button {
-        width: 120px;
-        height: 120px;
+        width: 90px;
+        height: 90px;
         bottom: 20px;
         right: 20px;
     }
     
     .floating-button-text {
-        font-size: 22px;
+        font-size: 15px;
+    }
+
+    .slide-description h3 {
+    color: var(--t_light);;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--t_light);
+    font-size: 25px;
+    }
+
+    .slide-description p {
+    margin: 0;
+    font-size: 14px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .logo {
         font-size: 24px;
-        max-width: 120px; /* Smaller logo for very small screens */
+        max-width: 120px;
     }
     
     .tel-button {
-        margin-right: 50px; /* Adjust spacing for smaller screens */
+        margin-right: 50px;
     }
     
     .btn {
-        min-width: 70px; /* Smaller minimum width */
-        font-size: 13px; /* Even smaller font */
-        height: 32px; /* Smaller height */
-        padding: 0 8px; /* Reduce horizontal padding */
+        min-width: 70px;
+        font-size: 13px;
+        height: 32px;
+        padding: 0 8px;
     }
     
     .content h1 {
@@ -1019,5 +1100,114 @@ body.menu-open {
     
     .legal-link {
         margin: 5px 0;
+        cursor: pointer;
+        color: var(--t_light);
+        text-decoration: underline;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid var(--t_primary);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    color: var(--t_dark);
+}
+
+.modal-content h2{
+text-align: center;
+color: var(--t_secondary);
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--t_primary);
+    text-decoration: none;
+}
+
+.modal-body {
+    margin-top: 20px;
+}
+
+.modal-body h3 {
+    color: var(--t_secondary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.modal-body p, .modal-body li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.modal-body ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    margin-bottom: auto;
+    width: 100%;
+    flex-direction: column-reverse;
+}
+
+.modal-body ul li {
+    margin: 5px 0;
+    list-style-type: disc;
+}
+
+/* Modal Responsive Styles */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+        padding: 15px;
+    }
+    
+    .modal-body h3 {
+        font-size: 18px;
+    }
+    
+    .modal-body p, .modal-body li {
+        font-size: 14px;
     }
 }
