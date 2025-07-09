@@ -298,12 +298,6 @@ body.menu-open {
     color: var(--t_primary);
 }
 
-.content span.highlight{
-    color: var(--t_light);
-    font-size: 70px;
-    font-weight: 700;
-}
-
 .highlight-text {
     font-weight: 600;
     font-size: 30px;
