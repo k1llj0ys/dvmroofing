@@ -390,7 +390,7 @@ body.menu-open {
 }
 .btnn:hover{
     background: #fff;
-    color: var(--t_highlighter);;
+    color: var(--t_secondary);;
 }
 .form .link{
     font-family: Arial, Helvetica, sans-serif;
