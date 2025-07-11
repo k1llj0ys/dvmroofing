@@ -1480,7 +1480,7 @@ input:focus::placeholder {
 .content-section p::first-letter {
     font-size: 1.2em;
     font-weight: 600;
-    color: var(--t_primary);
+    /* color: var(--t_primary); */
 }
 
 .content-section a {
