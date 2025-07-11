@@ -897,6 +897,7 @@ input:focus::placeholder {
     text-align: justify;
     letter-spacing: 0.3px;
     border-left: 4px solid var(--t_primary);
+    color: var(--t_dark);
 }
 
 .content-section {
@@ -918,21 +919,11 @@ input:focus::placeholder {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
-    animation: sectionFadeIn 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-@keyframes sectionFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Section animation removed */
 
 .content-section::before {
     content: '';
@@ -946,40 +937,9 @@ input:focus::placeholder {
     animation: gradientMove 3s ease infinite;
 }
 
-.content-section::after {
-    content: '';
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--t_primary);
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.5s ease;
-    pointer-events: none;
-}
+/* Scroll indicator removed */
 
-.content-section:hover::after {
-    opacity: 0.6;
-    animation: scrollIndicator 1.5s ease infinite;
-}
-
-@keyframes scrollIndicator {
-    0% {
-        transform: translate(-50%, 0);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translate(-50%, 10px);
-        opacity: 0.3;
-    }
-    100% {
-        transform: translate(-50%, 0);
-        opacity: 0.6;
-    }
-}
+/* Scroll indicator animation removed */
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
@@ -1239,20 +1199,10 @@ input:focus::placeholder {
   pointer-events: none;
 }
 
-/* Add animation for slide transitions */
-@keyframes slideScale {
-  0% {
-    opacity: 0.7;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
+/* Slide transitions without animation */
 .splide__slide.is-active {
-  animation: slideScale 0.7s ease forwards;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .splide__track {
@@ -1266,12 +1216,10 @@ input:focus::placeholder {
   border: none;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
-  transform: scale(0.95);
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .splide__slide.is-active {
-  transform: scale(1);
   opacity: 1;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   z-index: 2;
@@ -1419,18 +1367,16 @@ input:focus::placeholder {
   animation: pulse 2s infinite;
 }
 
+.splide__pagination {
+  display: none !important;
+}
+
 .splide__pagination__page {
-  background: rgba(255, 255, 255, 0.5);
-  width: 12px;
-  height: 12px;
-  margin: 0 8px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  display: none !important;
 }
 
 .splide__pagination__page.is-active {
-  transform: scale(1.3);
-  background: var(--t_primary);
+  display: none !important;
 }
 
 .slide-description {
@@ -1438,12 +1384,12 @@ input:focus::placeholder {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 70%, rgba(0, 0, 0, 0.5) 100%);
   padding: 30px 25px 20px;
   color: #fff;
   transform: translateY(0);
   transition: all 0.5s ease;
-  opacity: 0.95;
+  opacity: 0.98;
 }
 
 .splide__slide:hover .slide-description {
@@ -1470,14 +1416,14 @@ input:focus::placeholder {
 }
 
 .slide-description h3 {
-  color: var(--t_light);
+  color: #ffffff;
   margin-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 0.5px;
   padding-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   display: inline-block;
 }
@@ -1504,8 +1450,9 @@ input:focus::placeholder {
   line-height: 1.6;
   font-weight: 300;
   letter-spacing: 0.3px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  opacity: 0.9;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  opacity: 0.95;
   transform: translateY(5px);
   transition: all 0.5s ease 0.1s;
 }
@@ -1520,7 +1467,7 @@ input:focus::placeholder {
     line-height: 1.8;
     margin-bottom: 20px;
     font-size: 16px;
-    color: #444;
+    color: var(--t_light);
     text-align: center;
     max-width: 900px;
     margin-left: auto;
@@ -1568,7 +1515,7 @@ input:focus::placeholder {
     background: var(--t_secondary);
 }
 
-#about p, .testimonial p, .faq-item p, .contact-info p {
+#about p, .testimonial p, .faq-item p {
     line-height: 1.8;
     margin-bottom: 20px;
     font-size: 16px;
@@ -1672,7 +1619,7 @@ input:focus::placeholder {
     padding: 25px;
   }
   
-  #about p, .testimonial p, .faq-item p, .contact-info p {
+  #about p, .testimonial p, .faq-item p {
     font-size: 16px;
     line-height: 1.6;
     padding: 10px;
@@ -1739,6 +1686,7 @@ input:focus::placeholder {
     padding-left: 15px;
     position: relative;
     z-index: 1;
+    color: var(--t_dark);
 }
 
 .testimonial-author {
@@ -1755,32 +1703,169 @@ input:focus::placeholder {
     padding: 30px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 1px solid var(--t_highlighter);
+    border: 2px solid var(--t_primary);
     width: 100%;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .faq-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--t_secondary);
+}
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--t_primary), var(--t_secondary));
 }
 
 .faq-item h3 {
     color: var(--t_primary);
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--t_highlighter);
+    padding-left: 15px;
+    border-bottom: 2px solid var(--t_primary);
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover h3 {
+    color: var(--t_secondary);
+    border-bottom-color: var(--t_secondary);
 }
 
 .faq-item p {
     line-height: 1.8;
     font-size: 17px;
-    padding-left: 10px;
-    border-left: 3px solid rgba(0, 97, 181, 0.2);
+    padding: 10px 15px;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    color: var(--t_dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover p {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section Styles */
+.contact-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--t_dark);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--t_primary), var(--t_secondary), var(--t_primary));
+    background-size: 200% 100%;
+    animation: gradientMove 3s ease infinite;
+    z-index: 1;
+}
+
+.contact-section::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 97, 181, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+    z-index: -1;
+}
+
+.contact-section p {
+    color: var(--t_dark);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0 15px;
+}
+
+.contact-section p::first-letter {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--t_primary);
+}
+
+.contact-section .section-title {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.contact-section .section-title span {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--t_primary), var(--t_secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.contact-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--t_primary), var(--t_secondary));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.contact-section:hover .section-title::after {
+    width: 120px;
 }
 
 /* Contact Styles */
@@ -1796,39 +1881,100 @@ input:focus::placeholder {
 }
 
 .contact-info {
-    background: var(--t_background);
-    padding: 40px;
-    border-radius: 15px;
-    margin-top: 30px;
-    border: 1px solid var(--t_primary);
-    width: 100%;
-    color: var(--t_dark);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 40px;
+    background: var(--t_background);
+    border-radius: 15px;
+    border: 1px solid var(--t_primary);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--t_dark);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--t_primary), var(--t_secondary));
+    opacity: 0.7;
+    transition: height 0.3s ease;
+}
+
+.contact-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.contact-info:hover::before {
+    height: 6px;
 }
 
 .contact-info p {
-    margin-bottom: 20px;
-    font-size: 20px;
-    padding: 15px 25px;
+    color: var(--t_dark);
+    margin-bottom: 15px;
+    font-size: 18px;
+    padding: 15px 20px;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
+    border-radius: 8px;
     width: 100%;
     max-width: 500px;
-    text-align: center;
+    text-align: left;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
     display: flex;
     align-items: center;
-    justify-content: center;
+    border-left: 3px solid var(--t_primary);
+}
+
+.contact-info p i {
+    margin-right: 15px;
+    font-size: 20px;
+    color: var(--t_primary);
+    width: 24px;
+    text-align: center;
 }
 
 .contact-info p:hover {
-    transform: translateY(-3px);
+    transform: translateX(5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     background: rgba(255, 255, 255, 0.9);
+}
+
+.contact-phone {
+    border-left-color: var(--t_primary) !important;
+}
+
+.contact-phone i {
+    color: var(--t_primary) !important;
+}
+
+.contact-email {
+    border-left-color: var(--t_secondary) !important;
+}
+
+.contact-email i {
+    color: var(--t_secondary) !important;
+}
+
+.contact-address {
+    border-left-color: var(--t_accent) !important;
+}
+
+.contact-address i {
+    color: var(--t_accent) !important;
 }
 
 /* Floating Button Styles */
@@ -1838,7 +1984,7 @@ input:focus::placeholder {
     right: 30px;
     width: 80px;
     height: 80px;
-    background-color: var(--t_primary);
+    background-color: var(--t_secondary);
     color: white;
     border-radius: 50%;
     text-align: center;
