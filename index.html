@@ -6,6 +6,7 @@
     <title>DVM Roofing and Construction</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 </head>
 <body>
@@ -47,19 +48,33 @@
             <div class="content">
                 <h1>DVM Roofing and <br>Construction</h1>
                 <h3 class="cn">We don't just build roofs—we build trust, one home at a time.</h3>
-                <p class="par">Professional roofing and construction services with over <span class="highlight-text">20 years of experience</span>. <br>Quality workmanship, competitive pricing, and customer satisfaction guaranteed. <br>Residential and commercial projects of all sizes.</p>
+                <p class="par">Professional roofing and construction services with over <span class="highlight-text"><br>9 years of experience</span>. <br>Quality workmanship, competitive pricing, and customer satisfaction guaranteed. <br>Residential and commercial projects of all sizes.</p>
 
-                <div class="form">
+                <div class="form" id="inspection-form">
                     <h2>Schedule Your Free Inspection!</h2>
                     <p class="required-text">* Indicates required field</p>
-                    <input type="text" name="firstname" placeholder="First Name *" required>
-                    <input type="text" name="lastname" placeholder="Last Name *" required>
-                    <input type="email" name="email" placeholder="Email *" required>
-                    <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    <div class="form-group">
+                        <label for="firstname" class="sr-only">First Name</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="First Name *" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="sr-only">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Last Name *" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email *" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="sr-only">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required aria-required="true" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: 123-456-7890">
+                        <small class="input-help">Format: 123-456-7890</small>
+                    </div>
                     <div class="captcha">
                         <div class="captcha-placeholder">(captcha challenge)</div>
                     </div>
-                    <button class="btnn">Schedule Now!</button>
+                    <button type="submit" class="btnn">Schedule Now! <span class="btn-icon">→</span></button>
+                    <p class="privacy-note">We respect your privacy. Your information will not be shared.</p>
                 </div>
             </div>
         </section>
@@ -184,13 +199,13 @@
         
         <!-- CONTACT Section -->
         <section id="contact" class="section">
-            <div class="content-section">
-                <h2 class="section-title">Contact Us</h2>
+            <div class="contact-section">
+                <h2 class="section-title"><span>Contact Us</span></h2>
                 <p class="contact-intro">Have questions or ready to get started? Contact us today for a free consultation and estimate.</p>
                 <div class="contact-info">
-                    <p>Phone: +1 512-939-6730</p>
-                    <p>Email: admin@dvmroof.com</p>
-                    <p>Address: Georgetown, TX, United States, 78628</p>
+                    <p class="contact-phone"><i class="fas fa-phone-alt"></i> Phone: +1 512-939-6730</p>
+                    <p class="contact-email"><i class="fas fa-envelope"></i> Email: admin@dvmroof.com</p>
+                    <p class="contact-address"><i class="fas fa-map-marker-alt"></i> Address: Georgetown, TX, United States, 78628</p>
                 </div>
             </div>
         </section>
@@ -311,6 +326,16 @@
     
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script>
+        // Handle navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
         // Mobile menu toggle functionality
         const menuToggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.menu');
@@ -461,16 +486,19 @@
             setupModals();
             
             // Initialize Splide carousel
-            new Splide('#image-carousel', {
+            const splide = new Splide('#image-carousel', {
                 perPage: 1,
-                gap: 20,
+                gap: 30,
+                padding: { left: '5%', right: '5%' },
+                focus: 'center',
+                trimSpace: false,
                 breakpoints: {
                     768: {
                         perPage: 1,
                         direction: 'ttb',
                         height: '500px',
                         arrows: true,
-                        pagination: true,
+                        pagination: false,
                         wheel: true,
                         releaseWheel: true,
                         gap: 0,
@@ -478,11 +506,61 @@
                     },
                 },
                 autoplay: true,
-                interval: 5000,
+                interval: 6000,
+                pauseOnHover: true,
+                pauseOnFocus: true,
                 type: 'loop',
-                pagination: true,
+                pagination: false,
                 arrows: true,
-            }).mount();
+                easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                speed: 800,
+                rewind: true,
+                rewindSpeed: 1000,
+                classes: {
+                    arrows: 'splide__arrows custom-arrows',
+                    arrow: 'splide__arrow custom-arrow',
+                    prev: 'splide__arrow--prev custom-prev',
+                    next: 'splide__arrow--next custom-next',
+                },
+            });
+            
+            // Handle image loading
+            splide.on('mounted', function() {
+                const slides = document.querySelectorAll('.splide__slide');
+                
+                slides.forEach(function(slide) {
+                    const img = slide.querySelector('img');
+                    
+                    // If image is already loaded or cached
+                    if (img.complete) {
+                        slide.classList.add('is-loaded');
+                    } else {
+                        // Add loaded class when image loads
+                        img.addEventListener('load', function() {
+                            slide.classList.add('is-loaded');
+                        });
+                        
+                        // Handle loading errors
+                        img.addEventListener('error', function() {
+                            slide.classList.add('is-loaded');
+                            slide.classList.add('has-error');
+                        });
+                    }
+                });
+            });
+            
+            // Add loaded class to visible slides on move
+            splide.on('moved', function() {
+                const visibleSlides = document.querySelectorAll('.splide__slide.is-visible');
+                
+                setTimeout(function() {
+                    visibleSlides.forEach(function(slide) {
+                        slide.classList.add('is-loaded');
+                    });
+                }, 100);
+            });
+            
+            splide.mount();
         });
     </script>
     <!-- Floating Button to Schedule Form -->
